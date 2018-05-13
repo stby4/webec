@@ -15,8 +15,14 @@ Während des Fluges sollen die nächstgelegenen Landefelder mithilfe des [Geoloc
 
 ## Project confirmation
 
-< to be filled by lecturer>
+confirmed.
 
+Super Idee!
+Zu Beginn würde ich davon ausgehen, dass man für die Bilder nur deren URLs verwalten muss.
+Wenn es die Zeit erlaubt, möchte man evtl. später eine upload-Möglichkeit bieten.
+
+Viel Spass,
+D. König
 
 ## Project delivery <to be filled by student>
 
