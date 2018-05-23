@@ -1,17 +1,26 @@
-package mvc
+package exercise
 
 class Coordinates {
     long lat
     long lon
-    int msl
 
-    long toDecimal(long degrees, long minutes, long seconds) {
+    Coordinates(long lat, long lon) {
+        this.lat = lat
+        this.lon = lon
+    }
+
+    Coordinates(long latDegrees, long latMinutes, long latSeconds, long lonDegrees, long lonMinutes, long lonSeconds) {
+        this.lat = toDecimal(latDegrees, latMinutes, latSeconds)
+        this.lon = toDecimal(lonDegrees, lonMinutes, lonSeconds)
+    }
+
+    static long toDecimal(long degrees, long minutes, long seconds) {
         return degrees + minutes / 60 + seconds / 3600
     }
 
 
     String toDms() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder()
 
         sb.append(toDmsPart(Math.abs(lat)))
                 .append(' ')
@@ -20,15 +29,12 @@ class Coordinates {
                 .append(toDmsPart(Math.abs(lon)))
                 .append(' ')
                 .append(lon >= 0 ? 'E' : 'W')
-                .append(", ")
-                .append(msl)
-                .append(" m MSL")
 
         return sb.toString()
     }
 
 
-    private String toDmsPart(long val) {
+    private static String toDmsPart(long val) {
         int degrees = (int) val
         int minutes = (int) (60 * (val - degrees))
         int seconds = 3600 * (val - degrees) - 60 * minutes

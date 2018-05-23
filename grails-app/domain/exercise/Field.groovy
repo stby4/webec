@@ -1,11 +1,14 @@
-package mvc
+package exercise
 
-class Card {
+class Field {
     public static final String WG = "Wiese / Grass"
     public static final String FF = "Felder / Fields"
 
     String title
-    Coordinates coordinates
+    String image
+    long lat
+    long lon
+    int msl
     String country
     String surface
     int length
@@ -13,22 +16,26 @@ class Card {
     String direction
     String description
     int rating
-    List<Comment> comments
     Date lastUpdated
+
+    static hasMany = [comments: Comment]
+
+    static mapping = {
+        comments(sort:'dateCreated', order: 'desc')
+    }
 
     static constraints = {
         title nullable: false
-        coordinates nullable: false
+        image nullable: false
+        lat nullable: false, range: -180..180
+        lon nullable: false, range: -180..180
+        msl nullable: false, range: -1000..9000
         country length: 2, nullable: false
-        surface inList: [WG]
+        surface inList: [WG, FF]
         length range: 1..99999
         width range: 1..9999
         direction nullable: false
-        description length: 2..9999
+        description size: 2..9999
         rating range: 0..5
-    }
-
-    static mapping = {
-        autoTimestamp true
     }
 }
