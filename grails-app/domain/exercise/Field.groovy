@@ -9,14 +9,16 @@ class Field {
     long lat
     long lon
     int msl
-    String country
     String surface
     int length
     int width
     String direction
     String description
-    int rating
     Date lastUpdated
+
+    def getCoordinates() {
+        return Coordinates.toDms(lat, lon)
+    }
 
     static hasMany = [comments: Comment]
 
@@ -30,12 +32,9 @@ class Field {
         lat nullable: false, range: -180..180
         lon nullable: false, range: -180..180
         msl nullable: false, range: -1000..9000
-        country length: 2, nullable: false
-        surface inList: [WG, FF]
         length range: 1..99999
         width range: 1..9999
-        direction nullable: false
+        direction nullable: false, range: 0..360
         description size: 2..9999
-        rating range: 0..5
     }
 }
