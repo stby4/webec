@@ -20,12 +20,14 @@ class BootStrap {
         ).save(failOnError: true)
 
         new Comment(
+                creator: 'Quax',
                 text: 'Mein absolutes Lieblingslandefeld!',
                 rating: 5,
                 field: field1
         ).save(failOnError: true)
 
         new Comment(
+                creator: 'Roter Baron',
                 text: 'Die nächste Bar ist leider eine herbe Enttäuschung. Kein Aussenlandebier verfügbar 😒',
                 rating: 2,
                 field: field1
@@ -47,12 +49,14 @@ class BootStrap {
         ).save(failOnError: true)
 
         new Comment(
+                creator: 'Otto Lilienthal',
                 text: 'Dieses Landefeld hat mir schon einige Male das Leben gerettet, aber wie die Beschreibung schon sagt ist die Landung nicht ganz einfach.',
                 rating: 4,
                 field: field2
         ).save(failOnError: true)
 
         new Comment(
+                creator: 'Chuck Yeager',
                 text: 'Nur was für Profis. So wie mich. Wer hier nicht landen kann, gehört nicht in ein Flugzeug.',
                 rating: 5,
                 field: field2

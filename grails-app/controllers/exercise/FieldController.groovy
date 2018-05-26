@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 // http://grails.asia/grails-tutorial-for-beginners-scaffolding/
 class FieldController {
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index() {
         def fields = Field.findAll()
@@ -26,20 +26,57 @@ class FieldController {
         redirect(action: "index", id: field.id)
     }
 
+    def edit(Long id) {
+        def field = Field.get(id)
+        if (!field) {
+            flash.error = message(code: 'default.not.found.message', args: [message(code: 'field.title', default: 'Field'), id])
+            redirect(action: "index")
+            return
+        }
+        [field: field]
+    }
+
+    def update(Long id, Long version) {
+        def field = Field.get(id)
+        if (!field) {
+            flash.error = message(code: 'default.not.found.message', args: [message(code: 'field.title', default: 'Field'), id])
+            redirect(action: "index")
+            return
+        }
+
+        if (null != version) {
+            if (field.version > version) {
+                fields.errors.rejectValue("version", "default.optimistic.locking.failure",
+                        [message(code: 'field.title', default: 'Field')] as Object[],
+                        'Another user has updated this Field while you were editing)')
+                render(view: 'edit', model: [field: field])
+                return
+            }
+        }
+
+        field.properties = params
+        if (!field.save(flush: true)) {
+            render(view: 'edit', model: [field: field])
+            return
+        }
+        flash.success = message(code: 'default.updated.message', args: [message(code: 'field.title'), field.title])
+        redirect(action: 'index', id: field.id)
+    }
+
     def delete(Long id) {
         def field = Field.get(id)
         if (!field) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'field.title', default: 'Field'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'field.title', default: 'Field'), field.title])
             redirect(action: "index")
             return
         }
         try {
             field.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'field.title', default: 'Field'), id])
+            flash.success = message(code: 'default.deleted.message', args: [message(code: 'field.title', default: 'Field'), field.title])
             redirect(action: "index")
         }
         catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'field.title', default: 'Field'), id])
+            flash.error = message(code: 'default.not.deleted.message', args: [message(code: 'field.title', default: 'Field'), field.title])
             redirect(action: "index", id: id)
         }
     }

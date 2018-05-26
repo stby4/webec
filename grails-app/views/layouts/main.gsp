@@ -1,46 +1,33 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="cleartype" content="on"/>
+
     <title>
         <g:layoutTitle default="Aussenlandekatalog"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
 
     <asset:stylesheet src="application.css"/>
 
     <g:layoutHead/>
 </head>
+
 <body>
+<g:if test="${flash.message}">
+    <div class="alert alert-info">${flash.message}</div>
+</g:if>
+<g:if test="${flash.success}">
+    <div class="alert alert-success">${flash.success}</div>
+</g:if>
+<g:if test="${flash.error}">
+    <div class="alert alert-warning">${flash.error}</div>
+</g:if>
+<g:layoutBody/>
 
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/#">
-		    <asset:image src="grails.svg" alt="Grails Logo"/>
-                </a>
-            </div>
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <g:pageProperty name="page.nav" />
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <g:layoutBody/>
-
-    <div class="footer" role="contentinfo"></div>
-
-    <asset:javascript src="application.js"/>
-
+<asset:javascript src="application.js"/>
 </body>
 </html>

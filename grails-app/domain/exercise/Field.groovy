@@ -21,10 +21,23 @@ class Field {
         return Coordinates.toDms(lat, lon)
     }
 
+    def getRating() {
+        if (null == comments || 0 == comments.size()) {
+            return 0
+        }
+
+        int avg = 0
+        for (comment in comments) {
+            avg += comment.rating
+        }
+
+        return Math.round(avg / comments.size())
+    }
+
     static hasMany = [comments: Comment]
 
     static mapping = {
-        comments(sort:'dateCreated', order: 'desc')
+        comments(sort: 'dateCreated', order: 'desc')
     }
 
     static constraints = {

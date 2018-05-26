@@ -2,14 +2,12 @@
 <html>
 <head>
     <meta name="layout" content="main">
+    <title><g:message code="default.create.label" args="${message(code: 'field.title', default: 'Field')}"/></title>
 </head>
 
 <body>
 <div>
-    <h2><g:message code="field.create.label"/></h2>
-    <g:if test="${flash.message}">
-        <div class="flash-message">${flash.message}</div>
-    </g:if>
+    <h2><g:message code="default.new.label" args="${message(code: 'field.title', default: 'Field')}"/></h2>
     <g:hasErrors bean="${field}">
         <ul class="errors">
             <g:eachError bean="${field}" var="error">
