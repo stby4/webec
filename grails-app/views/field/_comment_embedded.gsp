@@ -4,7 +4,7 @@
         <span class="created"><g:formatDate type="datetime" style="MEDIUM" timeStyle="SHORT"
                                             date="${comment.dateCreated}"/></span>
 
-        <g:form method="DELETE" class="remove">
+        <g:form method="DELETE" class="remove" controller="comment" action="delete">
             <g:hiddenField name="id" value="${comment.id}"/>
 
             <button type="submit" name="_action_delete"
