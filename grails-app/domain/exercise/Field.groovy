@@ -13,6 +13,7 @@ class Field {
     int length
     int width
     String direction
+    boolean bothDirections
     String description
     Date lastUpdated
 
@@ -32,9 +33,10 @@ class Field {
         lat nullable: false, range: -180..180
         lon nullable: false, range: -180..180
         msl nullable: false, range: -1000..9000
-        length range: 1..99999
-        width range: 1..9999
+        length nullable: false, range: 1..99999
+        width nullable: false, range: 1..9999
         direction nullable: false, range: 0..360
-        description size: 2..9999
+        bothDirections nullable: false
+        description nullable: false, size: 2..9999
     }
 }
