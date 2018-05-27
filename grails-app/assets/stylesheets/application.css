@@ -13,3 +13,28 @@
 *= require mobile
 *= require_self
 */
+
+article {
+    margin: 0 2em;
+}
+
+/*image from https://commons.wikimedia.org/wiki/Category:Gliders#/media/File:Glider_(sailplane).jpg*/
+.jumbotron {
+    background: url("../img/background.jpg");
+    background-clip: border-box;
+    background-size: 100%;
+    background-position-y: 50%;
+}
+
+.star, .starfull {
+    display: inline-block;
+    background-size: 12px 12px;
+}
+
+.star {
+    background: url("../img/icons8-christmas-star-32.png")
+}
+
+.starfull {
+    background: url("../img/icons8-star-filled-32.png")
+}

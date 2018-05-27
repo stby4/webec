@@ -1,43 +1,55 @@
 <%@ page import="exercise.Coordinates" %>
 
-<article>
+<article class="container">
     <header>
-        <h2>${field.title}</h2>
-        <g:form method="DELETE" class="remove">
-            <g:hiddenField name="id" value="${field.id}"/>
+        <div class="row">
+            <h2>${field.title}</h2>
 
-            <button type="submit" name="_action_delete"
-                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
-                <asset:image src="icons/icons8-trash-can.svg"/>
-            </button>
-        </g:form>
-        <g:link action="edit" id="${field.id}"><asset:image src="icons/icons8-pencil-32.png"/></g:link>
+            <div class="btn-group" role="group">
+                <g:form method="DELETE" class="remove">
+                    <g:hiddenField name="id" value="${field.id}"/>
 
-        <p>${field.coordinates}, <g:message code="field.altitude.display" args="${field.msl}" default="{0} m ASL"/></p>
-    </header>
-
-    <div>
-        <div>
-            <img src="${field.image}" alt="${field.title}"/>
+                    <button type="submit" name="_action_delete" class="btn btn-secondary"
+                            onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
+                        <g:message code="default.button.delete.label"/>
+                    </button>
+                </g:form>
+                <g:link action="edit" id="${field.id}">
+                    <buton type="button" class="btn btn-secondary">
+                        <g:message code="default.button.edit.label"/></buton>
+                </g:link>
+            </div>
         </div>
 
-        <div>
-            <ul>
-                <li>
-                    <b><g:message code="field.length.display" default="Length"/></b>: <g:message
-                        code="field.value.meter"
-                        args="${field.length}"
-                        default="{0} m"/>
-                </li>
-                <li>
-                    <b><g:message code="field.width.display" default="Width"/></b>: <g:message code="field.value.meter"
-                                                                                               args="${field.width}"
-                                                                                               default="{0} m"/>
-                </li>
-                <li>
-                    <b><g:message code="field.direction.display" default="Direction"/></b>: ${field.direction}°
-                </li>
-            </ul>
+        <div class="row">
+            <p>${field.coordinates}, <g:message code="field.altitude.display" args="${field.msl}"
+                                                default="{0} m ASL"/></p>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="media">
+            <img class="col-3 mr-3" src="${field.image}" alt="${field.title}"/>
+
+            <div class="media-body">
+                <ul>
+                    <li>
+                        <b><g:message code="field.length.display" default="Length"/></b>: <g:message
+                            code="field.value.meter"
+                            args="${field.length}"
+                            default="{0} m"/>
+                    </li>
+                    <li>
+                        <b><g:message code="field.width.display" default="Width"/></b>: <g:message
+                            code="field.value.meter"
+                            args="${field.width}"
+                            default="{0} m"/>
+                    </li>
+                    <li>
+                        <b><g:message code="field.direction.display" default="Direction"/></b>: ${field.direction}°
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 

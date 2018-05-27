@@ -2,11 +2,11 @@ package exercise
 
 
 class Coordinates {
-    static long toDecimal(long degrees, long minutes, long seconds) {
+    static long toDecimal(double degrees, double minutes, double seconds) {
         return degrees + minutes / 60 + seconds / 3600
     }
 
-    static String toDms(long lat, long lon) {
+    static String toDms(double lat, double lon) {
         def sb = new StringBuilder()
 
         sb.append(toDmsPart(Math.abs(lat)))
@@ -21,7 +21,7 @@ class Coordinates {
     }
 
 
-    private static String toDmsPart(long val) {
+    private static String toDmsPart(double val) {
         int degrees = (int) val
         int minutes = (int) (60 * (val - degrees))
         int seconds = (int) 3600 * (val - degrees) - 60 * minutes

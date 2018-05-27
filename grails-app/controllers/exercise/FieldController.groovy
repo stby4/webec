@@ -7,7 +7,30 @@ class FieldController {
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index() {
-        def fields = Field.findAll()
+        def fields = []
+
+        fields.sort()
+
+        if (params.containsKey('lat') && params.containsKey('lon')) {
+            def lat = params.double('lat')
+            def lon = params.double('lon')
+
+            fields = Field.findAll()
+
+            fields.sort({ a, b -> a.getDistance(lat, lon) <=> b.getDistance(lat, lon) } as Comparator)
+
+        } else if (params.id) {
+            def field = Field.get(params.long('id'))
+
+
+            if (field) {
+                fields.add(field)
+            }
+        }
+
+        if (1 > fields.size()) {
+            fields = Field.findAll()
+        }
 
         [fields: fields]
     }

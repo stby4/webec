@@ -6,8 +6,8 @@ class Field {
 
     String title
     String image
-    long lat
-    long lon
+    double lat
+    double lon
     int msl
     String surface
     int length
@@ -19,6 +19,19 @@ class Field {
 
     def getCoordinates() {
         return Coordinates.toDms(lat, lon)
+    }
+
+    def getDistance(double fromLat, double fromLon) {
+        // haversine formula from https://bigdatanerd.wordpress.com/2011/11/03/java-implementation-of-haversine-formula-for-distance-calculation-between-two-points/
+        def r = 6371
+        double p = Math.PI / 180
+        double latDistance = (fromLat - lat) * p
+        double lonDistance = (fromLon - lon) * p
+        def a = Math.pow(Math.sin(latDistance / 2), 2) + Math.cos(lat * p) * Math.cos(fromLat * p) * Math.pow(Math.sin(lonDistance / 2), 2)
+        def c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+        def distance = r * c
+
+        return distance
     }
 
     def getRating() {

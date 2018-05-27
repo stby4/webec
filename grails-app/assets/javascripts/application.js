@@ -10,12 +10,26 @@
 //= require_tree .
 //= require_self
 
-if (typeof jQuery !== 'undefined') {
-    (function($) {
-        $(document).ajaxStart(function() {
-            $('#spinner').fadeIn();
-        }).ajaxStop(function() {
-            $('#spinner').fadeOut();
-        });
-    })(jQuery);
+function showNearestFields(path, lat, lon) {
+    window.location.href = path + "?lat=" + lat + "&lon=" + lon;
 }
+
+
+$(document).ready(function () {
+    $('#locate').click(function () {
+        var path = window.location.protocol + "//" + window.location.host + $('#locate').attr('href');
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                showNearestFields(path, position.coords.latitude, position.coords.longitude)
+            })
+        } else {
+            // manually enter coordinates
+            alert('We could not find your location. Please enter the coordinates manually.');
+            var lat = prompt('Latitude');
+            var lon = prompt('Longitude');
+            showNearestFields(path, lat, lon);
+        }
+
+        return false;
+    })
+})
