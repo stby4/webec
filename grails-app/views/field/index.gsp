@@ -1,6 +1,6 @@
 <head>
     <meta name="layout" content="main"/>
-    <title>Aussenlandekatalog</title>
+    <title><g:message code="app.title"/></title>
 </head>
 
 <body>

@@ -34,11 +34,17 @@ Hand-written, static HTML
 project description:      (if other than `index.html` in project root directory)
 
 External contributions:
+- icons von [https://icons8.com/](https://icons8.com/)
+- bootstrap 4 von [https://getbootstrap.com/](https://getbootstrap.com/)
+- Hintergrundbild von [https://commons.wikimedia.org/wiki/Category:Gliders#/media/File:Glider_(sailplane).jpg](https://commons.wikimedia.org/wiki/Category:Gliders#/media/File:Glider_(sailplane).jpg)
+- Haversine-Formel zur Berechnung von Distanzen zwischen zwei Punkten von [https://bigdatanerd.wordpress.com/2011/11/03/java-implementation-of-haversine-formula-for-distance-calculation-between-two-points/](https://bigdatanerd.wordpress.com/2011/11/03/java-implementation-of-haversine-formula-for-distance-calculation-between-two-points/)
+- Bilder und Texte von [https://aussenlandefelder.files.wordpress.com](https://aussenlandefelder.files.wordpress.com)
 
 Other comments: 
 
 I'm particular proud of:
 
+Die Sortierung der Landefelder nach Distanz mit Hilfe eines Comperators
 
 ## Project grading 
 
