@@ -26,6 +26,9 @@
         <hr class="my-4">
         <a href="/field/index" id="locate" class="btn btn-primary btn-lg" role="button"><g:message
                 code="field.start.search.label"/></a>
+        <g:link controller="field" action="create" class="btn btn-light btn-lg" role="button">
+            <g:message code="field.button.add.label"/>
+        </g:link>
     </div>
 </div>
 

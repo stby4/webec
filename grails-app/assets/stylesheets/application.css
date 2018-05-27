@@ -14,8 +14,15 @@
 *= require_self
 */
 
+h2 {
+    font-size: 2em;
+}
+
 article {
     margin: 0 2em;
+}
+
+.preview {
 }
 
 /*image from https://commons.wikimedia.org/wiki/Category:Gliders#/media/File:Glider_(sailplane).jpg*/
@@ -28,13 +35,16 @@ article {
 
 .star, .starfull {
     display: inline-block;
-    background-size: 12px 12px;
+    width: 24px;
+    height: 24px;
 }
 
 .star {
-    background: url("../img/icons8-christmas-star-32.png")
+    background: url("../img/star.png");
+    background-size: 100%;
 }
 
 .starfull {
-    background: url("../img/icons8-star-filled-32.png")
+    background: url("../img/starfull.png");
+    background-size: 100%;
 }

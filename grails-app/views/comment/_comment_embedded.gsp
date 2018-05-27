@@ -1,4 +1,5 @@
-<article class="card">
+<div class="row">
+<article class="col card">
     <div class="card-body">
         <header>
             <span class="creator">${comment.creator}</span>
@@ -8,7 +9,7 @@
 
         <div class="rating">
             <g:each in="${[0, 1, 2, 3, 4]}" var="i">
-                <span class="star<g:if test="${comment.rating <= i}">full</g:if>"></span>
+                <span class="star<g:if test="${comment.rating > i}">full</g:if>"></span>
             </g:each>
         </div>
 
@@ -26,3 +27,4 @@
         </g:form>
     </div>
 </article>
+</div>
