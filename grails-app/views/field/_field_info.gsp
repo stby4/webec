@@ -58,7 +58,7 @@
     <section>
         <h3><g:message code="comment.title.label" default="Comments"/></h3>
         <g:if test="${0 < field.comments.size()}">
-            <g:render template="comment_embedded" collection="${field.comments}" var="comment"/>
+            <g:render template="/comment/comment_embedded" collection="${field.comments}" var="comment"/>
         </g:if>
         <g:else>
             <span class="big-error">

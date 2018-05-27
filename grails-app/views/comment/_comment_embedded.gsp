@@ -9,7 +9,7 @@
 
             <button type="submit" name="_action_delete"
                     onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
-                <asset:image src="icons/icons8-trash-can.svg"/>
+                <asset:image src="icons8-trash-can.svg"/>
             </button>
         </g:form>
     </header>

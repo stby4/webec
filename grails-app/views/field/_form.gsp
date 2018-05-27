@@ -77,5 +77,5 @@
     <label for="description">
         <g:message code="field.description.label" default="Description"/>
     </label>
-    <g:textField name="description" required="" value="${field?.description}"/>
+    <g:textArea name="description" required="" value="${field?.description}"/>
 </div>

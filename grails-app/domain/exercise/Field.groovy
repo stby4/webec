@@ -51,5 +51,6 @@ class Field {
         direction nullable: false, range: 0..360
         bothDirections nullable: false
         description nullable: false, size: 2..9999
+        comments(cascade: "all-delete-orphan")
     }
 }

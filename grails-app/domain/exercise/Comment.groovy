@@ -5,9 +5,10 @@ class Comment {
     String creator
     String text
     int rating
-    boolean deleted
-
-    static transients = ['deleted']
+//    Delete for GDPR compliance ;)
+//    boolean deleted
+//
+//    static transients = ['deleted']
 
     static belongsTo = [field: Field]
 
