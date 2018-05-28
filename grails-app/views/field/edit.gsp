@@ -26,7 +26,7 @@
 
                 <g:actionSubmit class="btn btn-primary" action="update"
                                 value="${message(code: 'default.button.update.label')}"/>
-                <g:actionSubmit class="btn btn-secondary" action="index"
+                <g:actionSubmit class="btn btn-secondary" action="index" formnovalidate=""
                                 value="${message(code: 'default.button.cancel.label')}"/>
                 <g:actionSubmit class="btn btn-secondary" action="delete"
                                 value="${message(code: 'default.button.delete.label')}"

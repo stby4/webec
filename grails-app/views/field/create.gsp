@@ -19,10 +19,12 @@
                     </g:eachError>
                 </ul>
             </g:hasErrors>
-            <g:form action="save">
+            <g:form method="POST">
                 <g:render template="form"/>
-                <g:submitButton name="create" value="${message(code: 'default.button.create.label')}"
+                <g:actionSubmit name="create" action="save" value="${message(code: 'default.button.create.label')}"
                                 class="btn btn-primary"/>
+                <g:actionSubmit class="btn btn-secondary" action="index" formnovalidate=""
+                                value="${message(code: 'default.button.cancel.label')}"/>
             </g:form>
         </div>
     </div>

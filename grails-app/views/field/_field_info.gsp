@@ -9,7 +9,7 @@
 
 <p>
     %{--point.latitude_longitude_titleString_notesString_linkURL_photoURL--}%
-    <a href="https://bing.com/maps/default.aspx?sp=point.${field.lat}_${field.lon}_${field.title}_${field.description}_${link(controller: 'field', action: 'index', id: field.id)}_${field.image}"
+    <a href="https://bing.com/maps/default.aspx?cp=${field.lat}~${field.lon}&sp=point.${field.lat}_${field.lon}_${field.title}_${field.description}_${link(controller: 'field', action: 'index', id: field.id)}_${field.image}"
        target="_blank">${field.coordinates}</a>,
 <g:message code="field.altitude.display" args="${field.msl}" default="{0} m ASL"/>
 </p>
@@ -56,7 +56,7 @@
                             default="{0} m"/>
                 </th>
                 <th>
-                    ${field.direction}° <g:if test="${field.bothDirections}">/ ${(field.direction + 180) % 360}</g:if>
+                    ${field.direction}° <g:if test="${field.bothDirections}">/ ${(field.direction + 180) % 360}°</g:if>
                 </th>
             </tr>
             </tbody>

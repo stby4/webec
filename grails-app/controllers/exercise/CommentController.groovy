@@ -6,9 +6,8 @@ class CommentController {
     static allowedMethods = [save: "POST", delete: "DELETE"]
 
     def index() {
-        def comments = Comment.findAll()
-
-        [comments: comments]
+        redirect(controller: "field", action: "index")
+        return
     }
 
     def create(Long fieldid) {
