@@ -19,28 +19,32 @@
 <body>
 
 <div class="jumbotron">
+    <div class="background-gradient"></div>
+
     <div class="container">
         <h1 class="display-4"><g:message code="app.title"/></h1>
 
         <p class="lead"><g:message code="app.lead"/></p>
-        <hr class="my-4">
         <a href="/field/index" id="locate" class="btn btn-primary btn-lg" role="button"><g:message
                 code="field.start.search.label"/></a>
-        <g:link controller="field" action="create" class="btn btn-light btn-lg" role="button">
+        <g:link controller="field" action="create" class="btn btn-light btn-lg add-field" role="button">
             <g:message code="field.button.add.label"/>
         </g:link>
     </div>
 </div>
 
-
-<g:if test="${flash.message}">
-    <div class="alert alert-info"><div class="container">${flash.message}</div></div>
-</g:if>
-<g:if test="${flash.success}">
-    <div class="alert alert-success"><div class="container">${flash.success}</div></div>
-</g:if>
-<g:if test="${flash.error}">
-    <div class="alert alert-warning"><div class="container">${flash.error}</div></div>
+<g:if test="${flash.message || flash.success || flash.error}">
+    <div class="container">
+        <g:if test="${flash.message}">
+            <div class="alert alert-info"><div class="container">${flash.message}</div></div>
+        </g:if>
+        <g:if test="${flash.success}">
+            <div class="alert alert-success"><div class="container">${flash.success}</div></div>
+        </g:if>
+        <g:if test="${flash.error}">
+            <div class="alert alert-warning"><div class="container">${flash.error}</div></div>
+        </g:if>
+    </div>
 </g:if>
 
 <g:layoutBody/>

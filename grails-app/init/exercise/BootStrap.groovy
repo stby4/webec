@@ -9,7 +9,7 @@ class BootStrap {
                 title: "Reschenpaß",
                 image: 'https://aussenlandefelder.files.wordpress.com/2008/06/reschenpass-20080608-02.jpg',
                 lat: 51.1517,
-                lon: 10.415,
+                lon: 10.511218,
                 msl: 330,
                 surface: Field.WG,
                 length: 120,
@@ -60,6 +60,21 @@ class BootStrap {
                 text: 'Nur was für Profis. So wie mich. Wer hier nicht landen kann, gehört nicht in ein Flugzeug.',
                 rating: 5,
                 field: field2
+        ).save(failOnError: true)
+
+//        http://www.segelfliegen-wiesental.de/downloads/Aussenlandefelder_Suedschwarzwald_2006.pdf
+        new Field(
+                title: 'Wehr / Zelg',
+                image: 'https://preview.ibb.co/jnKLtJ/wehr.png',
+                lat: 47.6438889,
+                lon: 7.9091667,
+                msl: 380,
+                surface: Field.WG,
+                length: 300,
+                width: 50,
+                direction: 320,
+                bothDirections: false,
+                description: 'Landung nur in Richtung 32 da Gelände nach NW ansteigt. Pistenschwelle ist mit 2 weiss/roten Fässern markiert. Im Anflug Bäume! Der Querweg ist überrollbar.'
         ).save(failOnError: true)
     }
 

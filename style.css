@@ -1,6 +1,11 @@
-.wrapper {
+body {
+    max-width: 100%;
     width: 780px;
     margin: auto;
+}
+
+.wrapper {
+    padding: 0 10px;
 }
 
 h1 {

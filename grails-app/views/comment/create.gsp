@@ -2,14 +2,14 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <title><g:message code="comment.create.label" args="${comment.field.title}"/></title>
+    <title><g:message code="comment.create.label" args="${[comment.field.title]}"/></title>
 </head>
 
 <body>
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2><g:message code="comment.create.label" args="${comment.field.title}"/></h2>
+            <h2><g:message code="comment.create.label" args="${[comment.field.title]}"/></h2>
             <g:hasErrors bean="${comment}">
                 <ul class="errors">
                     <g:eachError bean="${comment}" var="error">

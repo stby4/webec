@@ -1,14 +1,14 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <title><g:message code="default.edit.label" args="${message(code: 'field.title', default: 'Field')}"/></title>
+    <title><g:message code="default.edit.label" args="${[message(code: 'field.title', default: 'Field')]}"/></title>
 </head>
 
 <body>
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2><g:message code="default.edit.label" args="${message(code: 'field.title', default: 'Field')}"/></h2>
+            <h2><g:message code="default.edit.label" args="${[message(code: 'field.title', default: 'Field')]}"/></h2>
             <g:hasErrors bean="${field}">
                 <ul class="errors">
                     <g:eachError bean="${field}" var="error">

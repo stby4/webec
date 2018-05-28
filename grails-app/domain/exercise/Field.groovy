@@ -12,7 +12,7 @@ class Field {
     String surface
     int length
     int width
-    String direction
+    int direction
     boolean bothDirections
     String description
     Date lastUpdated
@@ -55,7 +55,7 @@ class Field {
 
     static constraints = {
         title nullable: false, unique: true
-        image nullable: false
+        image nullable: false, url: true
         lat nullable: false, range: -180..180
         lon nullable: false, range: -180..180
         msl nullable: false, range: -1000..9000

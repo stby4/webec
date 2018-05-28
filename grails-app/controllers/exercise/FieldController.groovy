@@ -8,17 +8,18 @@ class FieldController {
 
     def index() {
         def fields = []
+        Long lat = null
+        Long lon = null
 
         fields.sort()
 
         if (params.containsKey('lat') && params.containsKey('lon')) {
-            def lat = params.double('lat')
-            def lon = params.double('lon')
+            lat = params.double('lat')
+            lon = params.double('lon')
 
             fields = Field.findAll()
 
             fields.sort({ a, b -> a.getDistance(lat, lon) <=> b.getDistance(lat, lon) } as Comparator)
-
         } else if (params.id) {
             def field = Field.get(params.long('id'))
 
@@ -32,7 +33,7 @@ class FieldController {
             fields = Field.findAll()
         }
 
-        [fields: fields]
+        [fields: fields, lat: lat, lon: lon]
     }
 
     def create() {

@@ -22,7 +22,7 @@
         <label for="lat">
             <g:message code="field.lat.label" default="Latitude"/>
         </label>
-        <g:field type="number" step="0.000000000001" name="lat" required="" value="${field?.lat}" class="form-control"/>
+        <g:field type="number" step="0.000001" name="lat" required="" value="${field?.lat}" class="form-control"/>
     </div>
 
     %{--Longitude--}%
@@ -30,7 +30,7 @@
         <label for="lon">
             <g:message code="field.lon.label" default="Longitude"/>
         </label>
-        <g:field type="number" step="0.000000000001" name="lon" required="" value="${field?.lon}" class="form-control"/>
+        <g:field type="number" step="0.000001" name="lon" required="" value="${field?.lon}" class="form-control"/>
     </div>
 
     %{--Altitude--}%
@@ -74,6 +74,14 @@
         </label>
         <g:field type="number" name="direction" required="" min="0" max="360" value="${field?.direction}"
                  class="form-control"/>
+    </div>
+
+    %{--Landable in both directions--}%
+    <div class="col form-group ${hasErrors(bean: field, field: 'bothDirections', 'error')}">
+        <label for="bothDirections">
+            <g:message code="field.bothdirections.label" default="Landable in both directions"/>
+        </label>
+        <g:checkBox name="bothDirections" value="${field?.bothDirections}" class="form-control"/>
     </div>
 </div>
 
