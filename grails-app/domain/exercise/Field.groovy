@@ -54,7 +54,7 @@ class Field {
     }
 
     static constraints = {
-        title nullable: false
+        title nullable: false, unique: true
         image nullable: false
         lat nullable: false, range: -180..180
         lon nullable: false, range: -180..180
