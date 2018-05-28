@@ -2,14 +2,21 @@ package exercise
 
 import org.springframework.dao.DataIntegrityViolationException
 
-// http://grails.asia/grails-tutorial-for-beginners-scaffolding/
+/**
+ * Controller for fields, the main application
+ * based on http://grails.asia/grails-tutorial-for-beginners-scaffolding/
+ */
 class FieldController {
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
+    /**
+     * list all fields, sort by distance, or show individual field
+     * @return
+     */
     def index() {
         def fields = []
-        Long lat = null
-        Long lon = null
+        Double lat = null
+        Double lon = null
 
         fields.sort()
 
@@ -36,10 +43,18 @@ class FieldController {
         [fields: fields, lat: lat, lon: lon]
     }
 
+    /**
+     * create new field, show form
+     * @return
+     */
     def create() {
         [field: new Field(params)]
     }
 
+    /**
+     * validate form and save to db
+     * @return
+     */
     def save() {
         def field = new Field(params)
         if (!field.save(flush: true)) {
@@ -50,6 +65,11 @@ class FieldController {
         redirect(action: "index", id: field.id)
     }
 
+    /**
+     * show prefilled form to update existing field
+     * @param id of the field
+     * @return
+     */
     def edit(Long id) {
         def field = Field.get(id)
         if (!field) {
@@ -60,6 +80,12 @@ class FieldController {
         [field: field]
     }
 
+    /**
+     * validate input and update db
+     * @param id of the field
+     * @param version of the field, for optimistic locking
+     * @return
+     */
     def update(Long id, Long version) {
         def field = Field.get(id)
         if (!field) {
@@ -87,6 +113,11 @@ class FieldController {
         redirect(action: 'index', id: field.id)
     }
 
+    /**
+     * delete field
+     * @param id of the field to be deleted
+     * @return
+     */
     def delete(Long id) {
         def field = Field.get(id)
         if (!field) {

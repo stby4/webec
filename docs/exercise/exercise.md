@@ -40,7 +40,9 @@ External contributions:
 - Haversine-Formel zur Berechnung von Distanzen zwischen zwei Punkten von [https://bigdatanerd.wordpress.com/2011/11/03/java-implementation-of-haversine-formula-for-distance-calculation-between-two-points/](https://bigdatanerd.wordpress.com/2011/11/03/java-implementation-of-haversine-formula-for-distance-calculation-between-two-points/)
 - Bilder und Texte von [https://aussenlandefelder.files.wordpress.com](https://aussenlandefelder.files.wordpress.com)
 
-Other comments: 
+Other comments:
+
+siehe index.html
 
 I'm particular proud of:
 
