@@ -50,4 +50,24 @@ Die Sortierung der Landefelder nach Distanz mit Hilfe eines Comperators
 
 ## Project grading 
 
-< to be filled by lecturer>
+index.html given and fully valid. Good use of semantic elements.
+
+The application works nicely.
+
+Functionality is in principle CRUD operations for two domain classes with a specialized, comprehensive main view.
+Additionally, there is advanced logic in the handling of geo positions.
+
+Commit log is fine but could be more fine-granular.
+Tests are very nice!
+HTML validity has many issues, incl. duplicated ids.
+Comments are very well used where appropriate.
+Factoring of the views into templates nicely avoids duplication.
+
+I award an extra point for the artificial value.
+The UI is clean and focussed.
+
+Congratulations!
+You make very good use of almost all topics that we covered in the module.
+
+Grade: 5.9
+
